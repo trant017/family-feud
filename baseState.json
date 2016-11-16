@@ -1,0 +1,58 @@
+{
+  "scorePool": 0,
+  "strikeCount": 0,
+  "currentQuestion": 0,
+  "currentTeam": 0,
+  "questions": [
+    {
+      "text": "Questions 1",
+      "answers": [
+        {
+          "hidden": true,
+          "text": "answer 1",
+          "value": 10
+        },
+        {
+          "hidden": true,
+          "text": "answer 1",
+          "value": 10
+        },
+        {
+          "hidden": true,
+          "text": "answer 1",
+          "value": 10
+        }
+      ]
+    },
+    {
+      "text": "Questions 1",
+      "answers": [
+        {
+          "hidden": true,
+          "text": "answer 1",
+          "value": 10
+        },
+        {
+          "hidden": true,
+          "text": "answer 1",
+          "value": 10
+        },
+        {
+          "hidden": true,
+          "text": "answer 1",
+          "value": 10
+        }
+      ]
+    }
+  ],
+  "teams": [
+    {
+      "name": "Team 1",
+      "score": 0
+    },
+    {
+      "name": "Team 2",
+      "score": 0
+    }
+  ]
+}
