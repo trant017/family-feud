@@ -21,6 +21,7 @@ class Admin extends Component {
     super();
     firebase.initializeApp(config);
     this.state = {
+      showStrike: false,
       scorePool: 0,
       currentQuestion: 0,
       strikeCount: 0,
@@ -94,13 +95,25 @@ class Admin extends Component {
     if (strikeCount <= 3) {
       dbRef.set({
         ...this.state,
-        strikeCount
+        strikeCount,
+        showStrike: true
       });
     }
+    window.setTimeout(this.hideStrike, 2000);
   }
+  hideStrike() {
+    const dbRef = firebase.database().ref('/');
+    _.set(this.state, 'showStrike', false)
+    dbRef.set({
+      ...this.state,
+      showStrike: false
+    });
+  }
+
   changeTeams() {
     const currentTeam = this.state.currentTeam;
     const dbRef = firebase.database().ref('/');
+
     dbRef.set({
       ...this.state,
       currentTeam: (currentTeam === 0 ? 1 : 0),

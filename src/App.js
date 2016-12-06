@@ -5,6 +5,7 @@ import ScoreBoard from './ScoreBoard.js';
 import CurrentQuestion from './CurrentQuestion.js';
 import StrikeCount from './StrikeCount.js';
 import TeamBoard from './TeamBoard.js';
+import BigStrike from './BigStrike.js';
 const config = {
   apiKey: "AIzaSyBJfKnj7rUnJBauLz2X8dMywh6sLI2fTAE",
   authDomain: "family-feud-d96a0.firebaseapp.com",
@@ -17,6 +18,7 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
+      showStrike: true,
       scorePool: 0,
       strikeCount: 0,
       currentQuestion: 0,
@@ -37,9 +39,17 @@ class App extends Component {
     });
     db.once('value');
   }
-
+  showStrike(show) {
+    if (show) {
+      return (
+        <BigStrike />
+      );
+    }
+    return <noop  />
+  }
   render() {
-    const { teams,
+    const { showStrike,
+      teams,
       questions,
       scorePool,
       strikeCount,
@@ -54,6 +64,7 @@ class App extends Component {
           <StrikeCount count={strikeCount}/>
         </div>
         <CurrentQuestion question={questions[currentQuestion]}/>
+        {this.showStrike(showStrike)}
       </div>
     );
   }

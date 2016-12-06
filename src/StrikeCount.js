@@ -16,11 +16,11 @@ class StrikeCount extends Component {
   render() {
     return (
       <div className="cp-strike-count">
-        {_.times(this.props.count, () => {
-          return <Strike width={55} height={55} fill="#AC4400"/>
+        {_.times(this.props.count, (i) => {
+          return <Strike key={i} width={55} height={55} color="#AC4400"/>
         })}
-        {_.times(3 - this.props.count, () => {
-          return <Strike width={55} height={55} fill="#555"/>
+        {_.times(3 - this.props.count, (i) => {
+          return <Strike key={3 - i} width={55} height={55} color="#555"/>
         })}
       </div>
     );
