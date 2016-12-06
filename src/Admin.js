@@ -43,6 +43,7 @@ class Admin extends Component {
     this.nextQuestion = this.nextQuestion.bind(this);
     this.revealAnswer = this.revealAnswer.bind(this);
     this.renderAnswer = this.renderAnswer.bind(this);
+    this.assignPool = this.assignPool.bind(this);
   }
   componentDidMount() {
     const db = firebase.database().ref('/');
@@ -122,9 +123,11 @@ class Admin extends Component {
 
         </p>
         <p key="2">Current Team: { teams[currentTeam].name }<br/>
-        <button key="1" onClick={this.changeTeams}>Change Teams</button></p>
+          <button key="1" onClick={this.changeTeams}>Change Teams</button></p>
         <p key="3">Strike Count: { strikeCount }<br/>
-        <button key="2" onClick={this.addStrike}>Add Strike</button></p>
+          <button key="2" onClick={this.addStrike}>Add Strike</button></p>
+        <label>Assign score pool</label><br/>
+        <button onClick={this.assignPool}>Assign Pool</button><br/>
       </div>
 
 
