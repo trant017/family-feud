@@ -5,7 +5,42 @@
   "currentTeam": 0,
   "questions": [
     {
-      "text": "Questions 1",
+      "text": "What’s your favourite monthly meet-up meal?",
+      "answers": [
+        {
+          "hidden": true,
+          "text": "Thai Food",
+          "value": 13
+        },
+        {
+          "hidden": true,
+          "text": "Greek Food",
+          "value": 6
+        },
+        {
+          "hidden": true,
+          "text": "Wraps",
+          "value": 4
+        },
+        {
+          "hidden": true,
+          "text": "Indian",
+          "value": 4
+        },
+        {
+          "hidden": true,
+          "text": "Bagels",
+          "value": 2
+        },
+        {
+          "hidden": true,
+          "text": "I live to far :(",
+          "value": 3
+        }
+      ]
+    },
+    {
+      "text": "What's your favourite monthly meet-up dessert?",
       "answers": [
         {
           "hidden": true,
@@ -25,7 +60,293 @@
       ]
     },
     {
-      "text": "Questions 1",
+      "text": "Other than borrowing books, what’s something else people do at the library?",
+      "answers": [
+        {
+          "hidden": true,
+          "text": "Cheese cake",
+          "value": 10
+        },
+        {
+          "hidden": true,
+          "text": "Cake",
+          "value": 8
+        },
+        {
+          "hidden": true,
+          "text": "Pie",
+          "value": 6
+        },
+        {
+          "hidden": true,
+          "text": "I live too far away",
+          "value": 3
+        },
+        {
+          "hidden": true,
+          "text": "Cupcakes",
+          "value": 3
+        },
+        {
+          "hidden": true,
+          "text": "Cookies",
+          "value": 2
+        },
+        {
+          "hidden": true,
+          "text": "Portuguese tarts",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "text": "Other than post it notes, name a product that 3M sells?",
+      "answers": [
+        {
+          "hidden": true,
+          "text": "Scotch Tape",
+          "value": 12
+        },
+        {
+          "hidden": true,
+          "text": "eBook / Cloud Library",
+          "value": 9
+        },
+        {
+          "hidden": true,
+          "text": "Band aids / Tensor bandages",
+          "value": 3
+        },
+        {
+          "hidden": true,
+          "text": "Self checkout machines",
+          "value": 2
+        },
+        {
+          "hidden": true,
+          "text": "Photocopiers & Scanners",
+          "value": 2
+        },
+        {
+          "hidden": true,
+          "text": "Chemicals / Cleaning Supplies",
+          "value": 2
+        }
+      ]
+    },
+    {
+      "text": "Name a strange thing you might find at a library?",
+      "answers": [
+        {
+          "hidden": true,
+          "text": "Strange items to borrow",
+          "value": 7
+        },
+        {
+          "hidden": true,
+          "text": "Animals",
+          "value": 4
+        },
+        {
+          "hidden": true,
+          "text": "Library Patrons",
+          "value": 3
+        },
+        {
+          "hidden": true,
+          "text": "Librarians",
+          "value": 3
+        },
+        {
+          "hidden": true,
+          "text": "Food",
+          "value": 2
+        },
+        {
+          "hidden": true,
+          "text": "Mende on Holiday",
+          "value": 1
+        }
+
+      ]
+    },
+    {
+      "text": "Name something Toronto has a lot of.",
+      "answers": [
+        {
+          "hidden": true,
+          "text": "Squirrels / Raccoons",
+          "value": 6
+        },
+        {
+          "hidden": true,
+          "text": "Condos",
+          "value": 5
+        },
+        {
+          "hidden": true,
+          "text": "Transportation",
+          "value": 4
+        },
+        {
+          "hidden": true,
+          "text": "Restaurants",
+          "value": 4
+        },
+        {
+          "hidden": true,
+          "text": "Cafés / Coffee Shops",
+          "value": 3
+        },
+        {
+          "hidden": true,
+          "text": "Hipsters",
+          "value": 2
+        }
+      ]
+    },
+    {
+      "text": "Name something you can find in a Toronto park.",
+      "answers": [
+        {
+          "hidden": true,
+          "text": "Squirrels / Raccoons",
+          "value": 11
+        },
+        {
+          "hidden": true,
+          "text": "Dogs / Dog Walkers",
+          "value": 7
+        },
+        {
+          "hidden": true,
+          "text": "Hipsters",
+          "value": 3
+        },
+        {
+          "hidden": true,
+          "text": "Dog Poop",
+          "value": 3
+        },
+        {
+          "hidden": true,
+          "text": "Trees",
+          "value": 2
+        },
+        {
+          "hidden": true,
+          "text": "Park Benches",
+          "value": 2
+        }
+      ]
+    },
+    {
+      "text": "Name something you may see on a developers t-shirt",
+      "answers": [
+        {
+          "hidden": true,
+          "text": "Bad coding joke",
+          "value": 13
+        },
+        {
+          "hidden": true,
+          "text": "Spilled Food / Stain",
+          "value": 6
+        },
+        {
+          "hidden": true,
+          "text": "Code",
+          "value": 6
+        },
+        {
+          "hidden": true,
+          "text": "Tech Logos",
+          "value": 5
+        },
+        {
+          "hidden": true,
+          "text": "Anything inside < > ",
+          "value": 2
+        },
+        {
+          "hidden": true,
+          "text": "Star Wars / Trek ",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "text": "What do your parents think you do for a living?",
+      "answers": [
+        {
+          "hidden": true,
+          "text": "Code / Software / Make websites",
+          "value": 11
+        },
+        {
+          "hidden": true,
+          "text": "Computer Things",
+          "value": 9
+        },
+        {
+          "hidden": true,
+          "text": "They have no idea",
+          "value": 6
+        },
+        {
+          "hidden": true,
+          "text": "Help Libraries",
+          "value": 5
+        },
+        {
+          "hidden": true,
+          "text": "Travel",
+          "value": 2
+        },
+        {
+          "hidden": true,
+          "text": "Browse the Internet",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "text": "Name something that a librarian does everyday.",
+      "answers": [
+        {
+          "hidden": true,
+          "text": "Help Patrons",
+          "value": 9
+        },
+        {
+          "hidden": true,
+          "text": "Shelve Books",
+          "value": 5
+        },
+        {
+          "hidden": true,
+          "text": "Cataloging / Think about MARC",
+          "value": 3
+        },
+        {
+          "hidden": true,
+          "text": "Checkout / Check-in Books",
+          "value": 3
+        },
+        {
+          "hidden": true,
+          "text": "Shush People",
+          "value": 2
+        },
+        {
+          "hidden": true,
+          "text": "Answer dumb questions",
+          "value": 2
+        }
+      ]
+    },
+    {
+      "text": "Out of all our libraries, which has the best Logo/Branding?",
       "answers": [
         {
           "hidden": true,
@@ -41,17 +362,217 @@
           "hidden": true,
           "text": "answer 1",
           "value": 10
+        }
+      ]
+    },
+    {
+      "text": "What do you think the top search term is for our catalogue system?",
+      "answers": [
+        {
+          "hidden": true,
+          "text": "Arapahoe",
+          "value": 10
+        },
+        {
+          "hidden": true,
+          "text": "Edmonton",
+          "value": 5
+        },
+        {
+          "hidden": true,
+          "text": "Calgary",
+          "value": 4
+        },
+        {
+          "hidden": true,
+          "text": "Chicago",
+          "value": 3
+        },
+        {
+          "hidden": true,
+          "text": "Pima",
+          "value": 2
+        },
+        {
+          "hidden": true,
+          "text": "YPRL",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "text": "What is your favourite Core Feature?",
+      "answers": [
+        {
+          "hidden": true,
+          "text": "Search / Smart Search",
+          "value": 10
+        },
+        {
+          "hidden": true,
+          "text": "Lists",
+          "value": 9
+        },
+        {
+          "hidden": true,
+          "text": "Shelves",
+          "value": 4
+        },
+        {
+          "hidden": true,
+          "text": "Digital Integrations",
+          "value": 2
+        },
+        {
+          "hidden": true,
+          "text": "Common Header",
+          "value": 2
+        },
+        {
+          "hidden": true,
+          "text": "MARC Rules Viewer",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "text": "What's your favourite Frank phrase?",
+      "answers": [
+        {
+          "hidden": true,
+          "text": "Who's Frank?",
+          "value": 10
+        },
+        {
+          "hidden": true,
+          "text": "You're all free to go",
+          "value": 8
+        },
+        {
+          "hidden": true,
+          "text": "Friday demos are TOTALLY on",
+          "value": 6
+        },
+        {
+          "hidden": true,
+          "text": "Spiffy",
+          "value": 2
+        },
+        {
+          "hidden": true,
+          "text": "Kevin, can you hear me?",
+          "value": 2
+        }
+      ]
+    },
+    {
+      "text": "What is your favourite tech jargon acronym/abbr?",
+      "answers": [
+        {
+          "hidden": true,
+          "text": "NERF",
+          "value": 7
+        },
+        {
+          "hidden": true,
+          "text": "WYSIWYG",
+          "value": 4
+        },
+        {
+          "hidden": true,
+          "text": "RTFM",
+          "value": 2
+        },
+        {
+          "hidden": true,
+          "text": "FRBR",
+          "value": 2
+        },
+        {
+          "hidden": true,
+          "text": "Yak Shaving",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "text": "Which Biblio team member would you want to have your back in a fight?",
+      "answers": [
+        {
+          "hidden": true,
+          "text": "Dennis",
+          "value": 8
+        },
+        {
+          "hidden": true,
+          "text": "Mende",
+          "value": 6
+        },
+        {
+          "hidden": true,
+          "text": "Simone",
+          "value": 2
+        },
+        {
+          "hidden": true,
+          "text": "Maxine (Word Fight)",
+          "value": 2
+        },
+        {
+          "hidden": true,
+          "text": "Kendall",
+          "value": 2
+        },
+        {
+          "hidden": true,
+          "text": "Beth",
+          "value": 2
+        }
+      ]
+    },
+    {
+      "text": "Other than borrowing, Name something you can do at a library?",
+      "answers": [
+        {
+          "hidden": true,
+          "text": "Use the Internet",
+          "value": 10
+        },
+        {
+          "hidden": true,
+          "text": "Read",
+          "value": 5
+        },
+        {
+          "hidden": true,
+          "text": "Study",
+          "value": 4
+        },
+        {
+          "hidden": true,
+          "text": "Events",
+          "value": 4
+        },
+        {
+          "hidden": true,
+          "text": "Sleep",
+          "value": 3
+        },
+        {
+          "hidden": true,
+          "text": "Use BiblioCommons",
+          "value": 1
         }
       ]
     }
   ],
   "teams": [
     {
-      "name": "Team 1",
+      "name": "Team Venture",
       "score": 0
     },
     {
-      "name": "Team 2",
+      "name": "Team Edward",
       "score": 0
     }
   ]

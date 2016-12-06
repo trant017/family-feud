@@ -5,22 +5,23 @@ import _ from 'lodash';
 class StrikeCount extends Component {
   static propTypes() {
     return {
-      name: PropTypes.string
+      count: PropTypes.number
     };
   }
-  renderStrikes(count) {
-    console.info('rendering Strike');
+  renderStrikes() {
     const strikes = []
-    _.times(count, () => {
-      strikes.push(<Strike/>);
-    })
+
     return strikes;
   }
   render() {
-    const { count } = this.props;
     return (
       <div className="cp-strike-count">
-        {this.renderStrikes(count)}
+        {_.times(this.props.count, () => {
+          return <Strike width={55} height={55} fill="#AC4400"/>
+        })}
+        {_.times(3 - this.props.count, () => {
+          return <Strike width={55} height={55} fill="#555"/>
+        })}
       </div>
     );
   }

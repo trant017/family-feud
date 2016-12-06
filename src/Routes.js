@@ -8,7 +8,7 @@ import Admin from './Admin.js';
 const Routes = (props) => (
   <Router {...props}>
     <Route path="/" component={App} />
-    <Route path="/controls" component={Admin} />
+    <Route path="controls" component={Admin} />
   </Router>
 );
 
