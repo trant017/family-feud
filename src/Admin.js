@@ -45,6 +45,7 @@ class Admin extends Component {
     this.revealAnswer = this.revealAnswer.bind(this);
     this.renderAnswer = this.renderAnswer.bind(this);
     this.assignPool = this.assignPool.bind(this);
+    this.hideStrike = this.hideStrike.bind(this);
   }
   componentDidMount() {
     const db = firebase.database().ref('/');
@@ -103,7 +104,7 @@ class Admin extends Component {
   }
   hideStrike() {
     const dbRef = firebase.database().ref('/');
-    _.set(this.state, 'showStrike', false)
+    
     dbRef.set({
       ...this.state,
       showStrike: false
