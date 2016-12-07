@@ -20,7 +20,7 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      showStrike: true,
+      showStrike: false,
       scorePool: 0,
       strikeCount: 0,
       currentQuestion: 0,
@@ -55,6 +55,7 @@ class App extends Component {
     if (this.state.playCorrectAudio) {
       return (
         <ReactAudioPlayer
+          controls={false}
           src="./ff-clang.wav"
           onEnded={this.finishCorrectAudio}
           autoPlay />
