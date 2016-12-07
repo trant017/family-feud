@@ -2,6 +2,8 @@
 import React, {PropTypes, Component} from 'react';
 import _ from 'lodash';
 import firebase from 'firebase';
+import './admin.scss';
+
 const config = {
   apiKey: "AIzaSyBJfKnj7rUnJBauLz2X8dMywh6sLI2fTAE",
   authDomain: "family-feud-d96a0.firebaseapp.com",
@@ -56,7 +58,7 @@ class Admin extends Component {
   }
   renderAnswer(answer, idx) {
     return (
-      <li>{answer.text}&mdash;{answer.value}<button onClick={this.revealAnswer.bind(this, idx)}>reveal</button></li>
+      <li>{answer.text}&mdash;{answer.value}<button className="btn btn-primary" onClick={this.revealAnswer.bind(this, idx)}>reveal</button></li>
     )
   }
   revealAnswer(idx) {
@@ -105,7 +107,7 @@ class Admin extends Component {
   }
   hideStrike() {
     const dbRef = firebase.database().ref('/');
-    
+
     dbRef.set({
       ...this.state,
       showStrike: false
@@ -126,10 +128,10 @@ class Admin extends Component {
     const { teams, strikeCount, questions, currentQuestion, currentTeam} = this.state;
 
     return (
-      <div>
+      <div className="cp-admin-panel">
         <p key="1">
           <label>Current Questions:</label> { questions[currentQuestion].question}<br/>
-          <button onClick={this.nextQuestion}>Next Question</button><br/>
+          <button className="btn btn-primary" onClick={this.nextQuestion}>Next Question</button><br/>
           <label>Answers:</label>
 
           <ul>
@@ -138,11 +140,11 @@ class Admin extends Component {
 
         </p>
         <p key="2">Current Team: { teams[currentTeam].name }<br/>
-          <button key="1" onClick={this.changeTeams}>Change Teams</button></p>
+          <button className="btn btn-primary" key="1" onClick={this.changeTeams}>Change Teams</button></p>
         <p key="3">Strike Count: { strikeCount }<br/>
-          <button key="2" onClick={this.addStrike}>Add Strike</button></p>
+          <button className="btn btn-primary" key="2" onClick={this.addStrike}>Add Strike</button></p>
         <label>Assign score pool</label><br/>
-        <button onClick={this.assignPool}>Assign Pool</button><br/>
+        <button className="btn btn-primary" onClick={this.assignPool}>Assign Pool</button><br/>
       </div>
 
 
