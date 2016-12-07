@@ -2,7 +2,7 @@
 import React, {PropTypes, Component} from 'react';
 import _ from 'lodash';
 import firebase from 'firebase';
-import './admin.scss';
+import './admin.css';
 
 const config = {
   apiKey: "AIzaSyBJfKnj7rUnJBauLz2X8dMywh6sLI2fTAE",
@@ -55,11 +55,6 @@ class Admin extends Component {
       this.setState(snap.val());
     });
     db.once('value');
-  }
-  renderAnswer(answer, idx) {
-    return (
-      <li>{answer.text}&mdash;{answer.value}<button className="btn btn-primary" onClick={this.revealAnswer.bind(this, idx)}>reveal</button></li>
-    )
   }
   revealAnswer(idx) {
 
@@ -124,30 +119,43 @@ class Admin extends Component {
       strikeCount: 0
     });
   }
+  renderAnswer(answer, idx) {
+    return (
+      <div className="col-md-6 answer">
+        <span className="text">{answer.text}</span>
+        <span className="score">{answer.value}</span>
+        <button className="btn btn-primary btn-lg" disabled={!answer.hidden}onClick={this.revealAnswer.bind(this, idx)}>Reveal</button>
+      </div>
+    )
+  }
+
   render() {
-    const { teams, strikeCount, questions, currentQuestion, currentTeam} = this.state;
+    const { teams, strikeCount, questions, currentQuestion, currentTeam, scorePool} = this.state;
 
     return (
-      <div className="cp-admin-panel">
-        <p key="1">
-          <label>Current Questions:</label> { questions[currentQuestion].question}<br/>
-          <button className="btn btn-primary" onClick={this.nextQuestion}>Next Question</button><br/>
-          <label>Answers:</label>
+      <div className="container">
+        <div className="cp-admin-panel row">
+          <div className="current-question col-md-12">
+            <h1 className="section-heading">Current Question&nbsp;<button className="btn btn-primary" onClick={this.nextQuestion}>Next Question</button></h1>
+            <h2>{ questions[currentQuestion].text}</h2>
+            <h3>Answers</h3>
+            <div className="row">
+              {_.chain(questions[currentQuestion].answers).map(this.renderAnswer).value()}
+            </div>
+          </div>
+          <div className="current-team row">
+            <div className="col-md-12">
+              <h1>Current Team: { teams[currentTeam].name }&nbsp;<button className="btn btn-info" onClick={this.changeTeams}>Change Teams</button></h1>
+              <h2>Assign score pool {scorePool}&nbsp;<button className="btn btn-info btn-sm" onClick={this.assignPool}>Assign Pool</button></h2>
+              <h3>Strike Count: { strikeCount }&nbsp;<button className="btn btn-danger btn-sm" key="2" onClick={this.addStrike}>Add Strike</button></h3>
+            </div>
+          </div>
 
-          <ul>
-            {_.chain(questions[currentQuestion].answers).map(this.renderAnswer).value()}
-          </ul>
 
-        </p>
-        <p key="2">Current Team: { teams[currentTeam].name }<br/>
-          <button className="btn btn-primary" key="1" onClick={this.changeTeams}>Change Teams</button></p>
-        <p key="3">Strike Count: { strikeCount }<br/>
-          <button className="btn btn-primary" key="2" onClick={this.addStrike}>Add Strike</button></p>
-        <label>Assign score pool</label><br/>
-        <button className="btn btn-primary" onClick={this.assignPool}>Assign Pool</button><br/>
+
+
+        </div>
       </div>
-
-
     );
   }
 }

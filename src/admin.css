@@ -1,0 +1,12 @@
+.cp-admin-panel .answer {
+  background-color: white;
+  color: black;
+  font-size: 3vh;
+  border: 1px solid grey;
+  margin-right: 5px;
+  justify-content: flex-end;
+}
+
+.cp-admin-panel .answer .text {
+  margin-right: auto;
+}

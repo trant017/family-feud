@@ -18,7 +18,7 @@ class CurrentQuestion extends Component {
   renderAnswers(answer, index) {
     if (answer.hidden) {
       return (
-        <div key={index} className="answer hidden">
+        <div key={index} className="answer answer_hidden">
           <span className="number">{index + 1}</span>
         </div>
       )
