@@ -16,19 +16,23 @@ class CurrentQuestion extends Component {
     }
   }
   renderAnswers(answer, index) {
-    if (answer.hidden) {
-      return (
-        <div key={index} className="answer answer_hidden">
-          <span className="number">{index + 1}</span>
-        </div>
-      )
-    }
     return (
-      <div className="answer" key={index}>
-        {answer.text}
-        <span className="score">{answer.value}</span>
+      <div className={`flip-container vertical ${answer.hidden ? '' : 'flip'}`} key={index}>
+        <div className="flipper">
+          <div className="front">
+            <div className="answer answer_hidden">
+              <span className="number">{index + 1}</span>
+            </div>
+          </div>
+          <div className="back">
+            <div className="answer" >
+              {answer.text}
+              <span className="score">{answer.value}</span>
+            </div>
+          </div>
+        </div>
       </div>
-    )
+    );
   }
   render() {
     const { question } = this.props;
