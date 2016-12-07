@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import ReactAudioPlayer from 'react-audio-player';
+import _ from 'lodash';
 import './App.css';
 import * as firebase from 'firebase';
 import ScoreBoard from './ScoreBoard.js';
@@ -29,6 +31,8 @@ class App extends Component {
       }],
       teams: []
     };
+
+    this.finishCorrectAudio = this.finishCorrectAudio.bind(this);
   }
 
   componentDidMount() {
@@ -46,6 +50,23 @@ class App extends Component {
       );
     }
     return <noop  />
+  }
+  renderCorrectAudio() {
+    if (this.state.playCorrectAudio) {
+      return (
+        <ReactAudioPlayer
+          src="./ff-clang.wav"
+          onEnded={this.finishCorrectAudio}
+          autoPlay />
+      );
+    }
+
+    return <noop />;
+  }
+  finishCorrectAudio() {
+    const dbRef = firebase.database().ref('/');
+    _.set(this.state, 'playCorrectAudio', false);
+    dbRef.set(this.state);
   }
   render() {
     const { showStrike,
@@ -65,6 +86,7 @@ class App extends Component {
         </div>
         <CurrentQuestion question={questions[currentQuestion]}/>
         {this.showStrike(showStrike)}
+        {this.renderCorrectAudio()}
       </div>
     );
   }

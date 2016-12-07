@@ -67,6 +67,7 @@ class Admin extends Component {
       const scorePool = _.get(this.state, 'scorePool')
       _.set(this.state, `scorePool`, scorePool + currentAnswer.value);
       _.set(this.state, `questions[${this.state.currentQuestion}].answers[${idx}].hidden`, false);
+      _.set(this.state, 'playCorrectAudio', true);
 
       dbRef.set(this.state);
     }

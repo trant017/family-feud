@@ -10,7 +10,8 @@
     "lodash": "4.16.4",
     "react": "15.3.2",
     "react-dom": "15.3.2",
-    "react-router": "3.0.0"
+    "react-router": "3.0.0",
+    "react-audio-player": "0.3.0"
   },
   "scripts": {
     "start": "react-scripts start",
