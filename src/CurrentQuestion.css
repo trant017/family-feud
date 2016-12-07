@@ -8,7 +8,9 @@
 .question {
   text-align: center;
   color: white;
+  font-size: 7rem;
   text-shadow: 2px 2px 2px black;
+  margin: 40px 0;
 }
 
 .answerList {
@@ -20,12 +22,15 @@
   box-sizing: border-box;
   width: 100%;
   background: black;
+  font-size: 5rem;
   color: white;
   height: 100px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding-left: 25px;
+  text-shadow: 2px 2px 2px black;
+
 }
 
 .answer_hidden {
@@ -60,7 +65,7 @@
   justify-content: space-between;
   align-items: center;
   padding-left: 25px;
-  margin: 10px 0 0;
+  margin: 20px 0 0;
   width: 48%;
 }
 

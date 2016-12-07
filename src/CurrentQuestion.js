@@ -37,7 +37,7 @@ class CurrentQuestion extends Component {
   render() {
     const { question } = this.props;
     console.log(question);
-    const height = Math.round(question.answers.length/2) * 115;
+    const height = Math.round(question.answers.length/2) * 150;
     return (
       <div className="cp-current-question">
         <h1 className="question">{question.text}</h1>
