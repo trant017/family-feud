@@ -1,18 +1,6 @@
 {
   "rules": {
     ".read": true,
-    ".write": true,
-    "words": {
-      ".read": true,
-      ".write": true
-    },
-    "dev": {
-      ".read": true,
-      ".write": true
-    },
-    "staging": {
-      ".read": true,
-      ".write": true
-    }
+    ".write": "auth != null"
   }
 }

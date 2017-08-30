@@ -5,11 +5,12 @@ import firebase from 'firebase';
 import './admin.css';
 
 const config = {
-  apiKey: "AIzaSyBJfKnj7rUnJBauLz2X8dMywh6sLI2fTAE",
-  authDomain: "family-feud-d96a0.firebaseapp.com",
-  databaseURL: "https://family-feud-d96a0.firebaseio.com",
-  storageBucket: "family-feud-d96a0.appspot.com",
-  messagingSenderId: "437442788117"
+  apiKey: "AIzaSyD4vT03R82XYAYaGrUN7NqMvQmrEveubUc",
+  authDomain: "bibliofamilyfeud-2017.firebaseapp.com",
+  databaseURL: "https://bibliofamilyfeud-2017.firebaseio.com",
+  projectId: "bibliofamilyfeud-2017",
+  storageBucket: "",
+  messagingSenderId: "142220609476"
 };
 
 
