@@ -1,38 +1,38 @@
 import React, {PropTypes, Component} from 'react';
 import _ from 'lodash';
 import './TeamBoard.css';
+import TeamCard from './TeamCard.js';
+import ScoreBoard from './ScoreBoard.js';
 
 class TeamBoard extends Component {
-  static propTypes() {
-    return {
-      name: PropTypes.string
-    };
-  }
-
   constructor() {
     super();
     this.renderTeamScore = this.renderTeamScore.bind(this);
   }
 
-  renderTeamScore(team, index) {
-    const isActive = index === this.props.currentTeamIndex;
+  renderTeamScore(team, isActive) {
     return (
-      <div key={index} className={`team${isActive ? ' active' : ''}`}>
-        <div className="name">{team.name}</div>
-        <div className="score">
-          {team.score}
-        </div>
-      </div>
-    )
+      <TeamCard team={team} isActive={isActive} />
+    );
   }
+
   render() {
-    const {teams} = this.props;
+    const { teams, score, currentTeamIndex } = this.props;
     return (
       <div className="cp-team-board">
-        {_.map(teams, this.renderTeamScore)}
+        <TeamCard team={teams[0]} isActive={0 === currentTeamIndex } />
+        <ScoreBoard score={score} />
+        <TeamCard team={teams[1]} isActive={1 === currentTeamIndex } />
       </div>
     );
   }
 }
 
 export default TeamBoard;
+
+TeamBoard.propTypes = {
+  currentTeamIndex: PropTypes.number.isRequired,
+  score: PropTypes.number.isRequired,
+  count: PropTypes.number.isRequired,
+  teams: PropTypes.arrayOf(PropTypes.object)
+};

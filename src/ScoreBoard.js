@@ -14,7 +14,7 @@ class ScoreBoard extends Component {
       justifyContent: 'center',
       alignContent: 'center',
       fontSize: '16vmin',
-      flex: '2',
+      flex: '3',
       border: '1px solid white',
       backgroundColor: '#333',
       fontFamily: 'monospace'

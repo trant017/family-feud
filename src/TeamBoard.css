@@ -2,11 +2,9 @@
   background: black;
   color: white;
   display: flex;
-  flex-flow: column;
+  flex-flow: row;
   justify-content: space-around;
   flex: 1;
-  border: 1px solid white;
-  border-right: none;
 }
 
 .team {
@@ -15,16 +13,18 @@
   line-height: 10vmin;
   font-size: 5vmin;
   display: flex;
-  flex-flow: row;
-  justify-content: space-between;
+  flex-flow: column;
+  justify-content: space-around;
+  align-items: center;
+  flex: 2;
+}
+
+.team .score {
+  font-size: 2em;
 }
 
 .team.active .name{
-  animation: blinker 1s infinite;
-}
-
-.team:first-child {
-  border-bottom: 1px solid white;
+  animation: blinker 1500ms infinite;
 }
 
 @keyframes blinker {

@@ -10,9 +10,3 @@
   height: 100vh;
   background-repeat: repeat;
 }
-
-.scoreboard {
-  display: flex;
-  flex-flow: row;
-  align-items: space-between;
-}

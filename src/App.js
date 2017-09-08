@@ -3,9 +3,7 @@ import ReactAudioPlayer from 'react-audio-player';
 import _ from 'lodash';
 import './App.css';
 import * as firebase from 'firebase';
-import ScoreBoard from './ScoreBoard.js';
 import CurrentQuestion from './CurrentQuestion.js';
-import StrikeCount from './StrikeCount.js';
 import TeamBoard from './TeamBoard.js';
 import BigStrike from './BigStrike.js';
 
@@ -31,9 +29,9 @@ class App extends Component {
         question: null,
         answers: []
       }],
-      teams: []
+      teams: [{name: 'test1', score: 0}, {name: 'test2', score: 0}]
     };
-
+    this.showStrike = this.showStrike.bind(this);
     this.finishCorrectAudio = this.finishCorrectAudio.bind(this);
   }
 
@@ -48,7 +46,7 @@ class App extends Component {
   showStrike(show) {
     if (show) {
       return (
-        <BigStrike />
+        <BigStrike count={this.state.strikeCount} />
       );
     }
     return <noop  />
@@ -71,6 +69,7 @@ class App extends Component {
     _.set(this.state, 'playCorrectAudio', false);
     dbRef.set(this.state);
   }
+
   render() {
     const { showStrike,
       teams,
@@ -82,11 +81,7 @@ class App extends Component {
 
     return (
       <div className="App">
-        <div className="scoreboard">
-          <TeamBoard currentTeamIndex={currentTeam} teams={teams}/>
-          <ScoreBoard score={scorePool}/>
-          <StrikeCount count={strikeCount}/>
-        </div>
+        <TeamBoard score={scorePool} count={strikeCount} currentTeamIndex={currentTeam} teams={teams}/>
         <CurrentQuestion question={questions[currentQuestion]}/>
         {this.showStrike(showStrike)}
         {this.renderCorrectAudio()}
