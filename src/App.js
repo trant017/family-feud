@@ -33,6 +33,7 @@ class App extends Component {
     };
     this.showStrike = this.showStrike.bind(this);
     this.finishCorrectAudio = this.finishCorrectAudio.bind(this);
+    this.finishStrikeAudio = this.finishStrikeAudio.bind(this);
   }
 
   componentDidMount() {
@@ -43,30 +44,33 @@ class App extends Component {
     });
     db.once('value');
   }
+  componentWillUpdate(nextProps, nextState) {
+    if (!this.state.playCorrectAudio && nextState.playCorrectAudio) {
+      this.correctPlayer.audioEl.play();
+    }
+
+    if (!this.state.showStrike && nextState.showStrike) {
+      this.strikePlayer.audioEl.play();
+    }
+  }
   showStrike(show) {
     if (show) {
       return (
         <BigStrike count={this.state.strikeCount} />
       );
     }
-    return <noop  />
+    return <noop />
   }
-  renderCorrectAudio() {
-    if (this.state.playCorrectAudio) {
-      return (
-        <ReactAudioPlayer
-          controls={false}
-          src="./ff-clang.wav"
-          onEnded={this.finishCorrectAudio}
-          autoPlay />
-      );
-    }
 
-    return <noop />;
-  }
   finishCorrectAudio() {
     const dbRef = firebase.database().ref('/');
     _.set(this.state, 'playCorrectAudio', false);
+    dbRef.set(this.state);
+  }
+
+  finishStrikeAudio() {
+    const dbRef = firebase.database().ref('/');
+    _.set(this.state, 'showStrike', false);
     dbRef.set(this.state);
   }
 
@@ -84,7 +88,16 @@ class App extends Component {
         <TeamBoard score={scorePool} count={strikeCount} currentTeamIndex={currentTeam} teams={teams}/>
         <CurrentQuestion question={questions[currentQuestion]}/>
         {this.showStrike(showStrike)}
-        {this.renderCorrectAudio()}
+        <ReactAudioPlayer
+          ref={(el) => { this.strikePlayer = el; }}
+          controls={false}
+          src="./ff-strike.wav"
+          onEnded={this.finishStrikeAudio} />
+        <ReactAudioPlayer
+          ref={(el) => { this.correctPlayer = el; }}
+          controls={false}
+          src="./ff-clang.wav"
+          onEnded={this.finishCorrectAudio} />
       </div>
     );
   }
