@@ -12,7 +12,7 @@ const config = {
   storageBucket: "",
   messagingSenderId: "142220609476"
 };
-
+firebase.initializeApp(config);
 
 class Admin extends Component {
   static propTypes() {
@@ -22,7 +22,8 @@ class Admin extends Component {
   }
   constructor() {
     super();
-    firebase.initializeApp(config);
+    this.db = firebase.database();
+
     this.state = {
       showStrike: false,
       scorePool: 0,
@@ -51,23 +52,23 @@ class Admin extends Component {
     this.hideStrike = this.hideStrike.bind(this);
     this.unlockBuzzer = this.unlockBuzzer.bind(this);
   }
-  
+
   componentDidMount() {
-    const db = firebase.database().ref('/');
-    db.on('value', snap => {
+    const dbRef = this.db.ref('/');
+    dbRef.on('value', snap => {
       this.setState(snap.val());
     });
-    db.once('value');
+    dbRef.once('value');
   }
 
   unlockBuzzer() {
     _.set(this.state, 'buzzerLocked', false);
-    const dbRef = firebase.database().ref('/');
+    const dbRef = this.db.ref('/');
     dbRef.set(this.state);
   }
 
   revealAnswer(idx) {
-    const dbRef = firebase.database().ref('/');
+    const dbRef = this.db.ref('/');
     const currentAnswer = _.get(this.state, `questions[${this.state.currentQuestion}].answers[${idx}]`);
     if (currentAnswer.hidden) {
       const scorePool = _.get(this.state, 'scorePool')
@@ -79,7 +80,7 @@ class Admin extends Component {
     }
   }
   assignPool() {
-    const dbRef = firebase.database().ref('/');
+    const dbRef = this.db.ref('/');
     const scorePool = _.get(this.state, 'scorePool');
     const currentTeamScore = _.get(this.state, `teams[${this.state.currentTeam}].score`);
     _.set(this.state, `teams[${this.state.currentTeam}].score`, currentTeamScore + scorePool);
@@ -91,7 +92,7 @@ class Admin extends Component {
     const maxIndex = this.state.questions.length - 1;
     const nextQuestion = this.state.currentQuestion + 1;
     const currentQuestion =  (maxIndex >= nextQuestion ? nextQuestion : 0);
-    const dbRef = firebase.database().ref('/');
+    const dbRef = this.db.ref('/');
     dbRef.set({
       ...this.state,
       currentQuestion
@@ -99,7 +100,7 @@ class Admin extends Component {
   }
   addStrike() {
     const strikeCount = this.state.strikeCount + 1;
-    const dbRef = firebase.database().ref('/');
+    const dbRef = this.db.ref('/');
     if (strikeCount <= 3) {
       dbRef.set({
         ...this.state,
@@ -110,7 +111,7 @@ class Admin extends Component {
     window.setTimeout(this.hideStrike, 2000);
   }
   hideStrike() {
-    const dbRef = firebase.database().ref('/');
+    const dbRef = this.db.ref('/');
 
     dbRef.set({
       ...this.state,
@@ -120,7 +121,7 @@ class Admin extends Component {
 
   changeTeams() {
     const currentTeam = this.state.currentTeam;
-    const dbRef = firebase.database().ref('/');
+    const dbRef = this.db.ref('/');
 
     dbRef.set({
       ...this.state,
@@ -130,39 +131,53 @@ class Admin extends Component {
   }
   renderAnswer(answer, idx) {
     return (
-      <div className="col-md-6 answer">
-        <span className="text">{answer.text}</span>
-        <span className="score">{answer.value}</span>
-        <button className="btn btn-primary btn-lg" disabled={!answer.hidden}onClick={this.revealAnswer.bind(this, idx)}>Reveal</button>
-      </div>
+      <tr>
+        <td className="text">{answer.text}</td>
+        <td className="score">{answer.value}</td>
+        <td>
+          <button className="btn btn-primary" disabled={!answer.hidden}onClick={this.revealAnswer.bind(this, idx)}>Reveal</button>
+        </td>
+      </tr>
     )
   }
 
   render() {
-    const { teams, strikeCount, questions, currentQuestion, currentTeam, scorePool} = this.state;
+    const { buzzerLocked, teams, strikeCount, questions, currentQuestion, currentTeam, scorePool} = this.state;
 
     return (
-      <div className="container">
+      <div className="container-fluid">
         <div className="cp-admin-panel row">
-          <div className="current-question col-md-12">
-            <h1 className="section-heading">Current Question&nbsp;<button className="btn btn-primary" onClick={this.nextQuestion}>Next Question</button></h1>
+          <aside className="col-sm-4">
+            <p>
+              Current Team: { teams[currentTeam].name }
+              &nbsp;<button className="btn btn-info btn-sm" onClick={this.changeTeams}>Change Teams</button>
+            </p>
+            <p>Current Question&nbsp;<button className="btn btn-info btn-sm" onClick={this.nextQuestion}>Next Question</button></p>
+
+            <p>
+              Assign score pool {scorePool}&nbsp;
+              <button className="btn btn-info btn-sm" onClick={this.assignPool}>Assign Pool</button>
+            </p>
+
+            <p>Strike Count: { strikeCount } &nbsp; <button className="btn btn-danger btn-sm" key="2" onClick={this.addStrike}>Add Strike</button></p>
+            <p><button onClick={this.unlockBuzzer} className="btn btn-danger btn-sm" disabled={!buzzerLocked}>Unlock Buzzer</button></p>
+          </aside>
+          <div className="current-question col-sm-8">
             <h2>{ questions[currentQuestion].text}</h2>
             <h3>Answers</h3>
-            <div className="row">
-              {_.chain(questions[currentQuestion].answers).map(this.renderAnswer).value()}
-            </div>
+            <table className="table">
+              <thead>
+                <tr>
+                  <th>Answer</th>
+                  <th>Score</th>
+                  <th>Options</th>
+                </tr>
+              </thead>
+              <tbody>
+                {_.chain(questions[currentQuestion].answers).map(this.renderAnswer).value()}
+              </tbody>
+            </table>
           </div>
-          <div className="current-team row">
-            <div className="col-md-12">
-              <h1>Current Team: { teams[currentTeam].name }&nbsp;<button className="btn btn-info" onClick={this.changeTeams}>Change Teams</button></h1>
-              <h2>Assign score pool {scorePool}&nbsp;<button className="btn btn-info btn-sm" onClick={this.assignPool}>Assign Pool</button></h2>
-              <h3>Strike Count: { strikeCount }&nbsp;<button className="btn btn-danger btn-sm" key="2" onClick={this.addStrike}>Add Strike</button></h3>
-            </div>
-          </div>
-
-
-
-
         </div>
       </div>
     );
