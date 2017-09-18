@@ -49,7 +49,9 @@ class Admin extends Component {
     this.renderAnswer = this.renderAnswer.bind(this);
     this.assignPool = this.assignPool.bind(this);
     this.hideStrike = this.hideStrike.bind(this);
+    this.unlockBuzzer = this.unlockBuzzer.bind(this);
   }
+  
   componentDidMount() {
     const db = firebase.database().ref('/');
     db.on('value', snap => {
@@ -57,8 +59,14 @@ class Admin extends Component {
     });
     db.once('value');
   }
-  revealAnswer(idx) {
 
+  unlockBuzzer() {
+    _.set(this.state, 'buzzerLocked', false);
+    const dbRef = firebase.database().ref('/');
+    dbRef.set(this.state);
+  }
+
+  revealAnswer(idx) {
     const dbRef = firebase.database().ref('/');
     const currentAnswer = _.get(this.state, `questions[${this.state.currentQuestion}].answers[${idx}]`);
     if (currentAnswer.hidden) {

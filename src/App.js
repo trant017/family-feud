@@ -92,10 +92,12 @@ class App extends Component {
           ref={(el) => { this.strikePlayer = el; }}
           controls={false}
           src="./ff-strike.wav"
+          preload="auto"
           onEnded={this.finishStrikeAudio} />
         <ReactAudioPlayer
           ref={(el) => { this.correctPlayer = el; }}
           controls={false}
+          preload="auto"
           src="./ff-clang.wav"
           onEnded={this.finishCorrectAudio} />
       </div>
