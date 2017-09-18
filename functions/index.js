@@ -21,6 +21,6 @@ exports.buzzIn = functions.https.onRequest((req, res) => {
   admin.database().ref('/currentTeam').set(parseInt(teamId, 10))
     .then(snapshot => {
       res.status(200);
-      retrun res.json({ success: true, message: 'Current Team set to ' + teamId });
+      return res.json({ success: true, message: 'Current Team set to ' + teamId });
     });
 });
