@@ -2,7 +2,7 @@ var functions = require('firebase-functions');
 
 var admin = require("firebase-admin");
 
-var serviceAccount = require("../scripts/bibliofamilyfeud-2017-firebase-adminsdk-m74ox-5e07c65b5a.json");
+var serviceAccount = require("./bibliofamilyfeud-2017-firebase-adminsdk-m74ox-5e07c65b5a.json");
 
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
