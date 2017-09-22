@@ -12,7 +12,6 @@ const config = {
   storageBucket: "",
   messagingSenderId: "142220609476"
 };
-firebase.initializeApp(config);
 
 class Admin extends Component {
   static propTypes() {
@@ -22,6 +21,7 @@ class Admin extends Component {
   }
   constructor() {
     super();
+    firebase.initializeApp(config);
     this.db = firebase.database();
 
     this.state = {
@@ -54,6 +54,7 @@ class Admin extends Component {
   }
 
   componentDidMount() {
+
     const dbRef = this.db.ref('/');
     dbRef.on('value', snap => {
       this.setState(snap.val());
