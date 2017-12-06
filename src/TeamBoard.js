@@ -1,8 +1,8 @@
-import React, {PropTypes, Component} from 'react';
-import _ from 'lodash';
-import './TeamBoard.css';
-import TeamCard from './TeamCard.js';
-import ScoreBoard from './ScoreBoard.js';
+import React, { PropTypes, Component } from "react";
+import _ from "lodash";
+import "./TeamBoard.css";
+import TeamCard from "./TeamCard.js";
+import ScoreBoard from "./ScoreBoard.js";
 
 class TeamBoard extends Component {
   constructor() {
@@ -11,18 +11,16 @@ class TeamBoard extends Component {
   }
 
   renderTeamScore(team, isActive) {
-    return (
-      <TeamCard team={team} isActive={isActive} />
-    );
+    return <TeamCard team={team} isActive={isActive} />;
   }
 
   render() {
-    const { teams, score, currentTeamIndex } = this.props;
+    const { teams, currentQuestion, questions, currentTeamIndex } = this.props;
     return (
       <div className="cp-team-board">
-        <TeamCard team={teams[0]} isActive={0 === currentTeamIndex } />
-        <ScoreBoard score={score} />
-        <TeamCard team={teams[1]} isActive={1 === currentTeamIndex } />
+        <TeamCard team={teams[0]} isActive={0 === currentTeamIndex} />
+        <ScoreBoard currentQuestion={currentQuestion} questions={questions} />
+        <TeamCard team={teams[1]} isActive={1 === currentTeamIndex} />
       </div>
     );
   }
@@ -32,7 +30,8 @@ export default TeamBoard;
 
 TeamBoard.propTypes = {
   currentTeamIndex: PropTypes.number.isRequired,
-  score: PropTypes.number.isRequired,
+  currentQuestion: PropTypes.number.isRequired,
+  questions: PropTypes.arrayOf(PropTypes.object),
   count: PropTypes.number.isRequired,
   teams: PropTypes.arrayOf(PropTypes.object)
 };

@@ -5,10 +5,7 @@ export default class Backend extends Component {
   render() {
     return (
       <div className="container">
-        <nav>
-          <Link to="/admin">Admin</Link>
-          <Link to="/controls">Controls</Link>
-        </nav>
+        <h1>Control Panel</h1>
         {this.props.children}
       </div>
     );

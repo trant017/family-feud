@@ -1,11 +1,11 @@
-import React, { Component } from 'react';
-import ReactAudioPlayer from 'react-audio-player';
-import _ from 'lodash';
-import './App.css';
-import * as firebase from 'firebase';
-import CurrentQuestion from './CurrentQuestion.js';
-import TeamBoard from './TeamBoard.js';
-import BigStrike from './BigStrike.js';
+import React, { Component } from "react";
+import ReactAudioPlayer from "react-audio-player";
+import _ from "lodash";
+import "./App.css";
+import * as firebase from "firebase";
+import CurrentQuestion from "./CurrentQuestion.js";
+import TeamBoard from "./TeamBoard.js";
+import BigStrike from "./BigStrike.js";
 
 const config = {
   apiKey: "AIzaSyD4vT03R82XYAYaGrUN7NqMvQmrEveubUc",
@@ -25,11 +25,13 @@ class App extends Component {
       strikeCount: 0,
       currentQuestion: 0,
       currentTeam: 0,
-      questions: [{
-        question: null,
-        answers: []
-      }],
-      teams: [{name: 'test1', score: 0}, {name: 'test2', score: 0}]
+      questions: [
+        {
+          question: null,
+          answers: []
+        }
+      ],
+      teams: [{ name: "test1", score: 0 }, { name: "test2", score: 0 }]
     };
     this.showStrike = this.showStrike.bind(this);
     this.finishCorrectAudio = this.finishCorrectAudio.bind(this);
@@ -38,11 +40,11 @@ class App extends Component {
 
   componentDidMount() {
     firebase.initializeApp(config);
-    const db = firebase.database().ref('/');
-    db.on('value', snap => {
+    const db = firebase.database().ref("/");
+    db.on("value", snap => {
       this.setState(snap.val());
     });
-    db.once('value');
+    db.once("value");
   }
   componentWillUpdate(nextProps, nextState) {
     if (!this.state.playCorrectAudio && nextState.playCorrectAudio) {
@@ -55,51 +57,62 @@ class App extends Component {
   }
   showStrike(show) {
     if (show) {
-      return (
-        <BigStrike count={this.state.strikeCount} />
-      );
+      return <BigStrike count={this.state.strikeCount} />;
     }
-    return <noop />
+    return <noop />;
   }
 
   finishCorrectAudio() {
-    const dbRef = firebase.database().ref('/');
-    _.set(this.state, 'playCorrectAudio', false);
+    const dbRef = firebase.database().ref("/");
+    _.set(this.state, "playCorrectAudio", false);
     dbRef.set(this.state);
   }
 
   finishStrikeAudio() {
-    const dbRef = firebase.database().ref('/');
-    _.set(this.state, 'showStrike', false);
+    const dbRef = firebase.database().ref("/");
+    _.set(this.state, "showStrike", false);
     dbRef.set(this.state);
   }
 
   render() {
-    const { showStrike,
+    const {
+      showStrike,
       teams,
       questions,
-      scorePool,
       strikeCount,
       currentTeam,
-      currentQuestion } = this.state;
+      currentQuestion
+    } = this.state;
 
     return (
       <div className="App">
-        <TeamBoard score={scorePool} count={strikeCount} currentTeamIndex={currentTeam} teams={teams}/>
-        <CurrentQuestion question={questions[currentQuestion]}/>
+        <TeamBoard
+          currentQuestion={currentQuestion}
+          questions={questions}
+          count={strikeCount}
+          currentTeamIndex={currentTeam}
+          teams={teams}
+        />
+        <CurrentQuestion question={questions[currentQuestion]} />
         {this.showStrike(showStrike)}
         <ReactAudioPlayer
-          ref={(el) => { this.strikePlayer = el; }}
+          ref={el => {
+            this.strikePlayer = el;
+          }}
           controls={false}
           src="./ff-strike.wav"
           preload="auto"
-          onEnded={this.finishStrikeAudio} />
+          onEnded={this.finishStrikeAudio}
+        />
         <ReactAudioPlayer
-          ref={(el) => { this.correctPlayer = el; }}
+          ref={el => {
+            this.correctPlayer = el;
+          }}
           controls={false}
           preload="auto"
           src="./ff-clang.wav"
-          onEnded={this.finishCorrectAudio} />
+          onEnded={this.finishCorrectAudio}
+        />
       </div>
     );
   }
