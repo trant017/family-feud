@@ -30,3 +30,17 @@ exports.buzzIn = functions.https.onRequest((req, res) => {
     }
   });
 });
+
+exports.unlock = functions.https.onRequest((req, res) => {
+  const buzzerLockedRef = admin.database().ref("/buzzerLocked");
+  buzzerLockedRef.once("value", function(snapshot) {
+    admin.database()
+      .ref("/buzzerLocked")
+      .set(false)
+      .then(snapshot => {
+        res.status(200);
+        res.json({ success: true, message: "Buzzers Unlocked" });
+      });
+    }
+  });
+});

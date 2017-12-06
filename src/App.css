@@ -6,4 +6,8 @@
   background-size: 64px 128px;
   height: 100vh;
   background-repeat: repeat;
+  grid-template:  'scoreboard score score scoreboard \
+                   questionText questionText questionText questionText \
+                   answerblock answerblock answerblock answerblock';
+  
 }

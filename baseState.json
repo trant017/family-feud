@@ -5,7 +5,7 @@
   "currentTeam": 0,
   "buzzerLocked": false,
   "questions": [{
-      "text": "Name something you can find in a Toronto park.",
+      "text": "Name something a cat has that a person doesn't",
       "answers": [{
           "hidden": true,
           "text": "Squirrels / Raccoons",
