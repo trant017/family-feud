@@ -196,38 +196,36 @@ class Controls extends Component {
     return (
       <div className="container-fluid">
         <div className="cp-admin-panel row">
-          <section className="col-xs-12">
-            <div className="btn-toolbar">
-              <div
-                className="btn-group btn-group-lg"
-                styles={{ marginBottom: "10px" }}
-              >
-                <button
-                  className="btn btn-info"
-                  type="button"
-                  onClick={this.changeTeams}
-                >
-                  Change Teams
+          <section className="col-sm-6" style={{ marginBottom: "1em" }}>
+            <div className="input-group input-group-lg">
+              <span className="input-group-btn">
+                <button className="btn btn-info" onClick={this.changeTeams}>
+                  <span className="glyphicon glyphicon-refresh" />
                 </button>
-                <button
-                  type="button"
-                  className="btn btn-info"
-                  onClick={this.assignPool}
-                >
+              </span>
+              <input
+                type="text"
+                disabled
+                className="form-control"
+                label="Current Team"
+                value={`${teams[currentTeam].name} - ${
+                  teams[currentTeam].score
+                }`}
+              />
+              <span className="input-group-btn">
+                <button className="btn btn-info" onClick={this.assignPool}>
                   Assign Pool {this.currentPool()}
                 </button>
-              </div>
+              </span>
+            </div>
+          </section>
+          <section className="col-sm-6" style={{ marginBottom: "1em" }}>
+            <div className="btn-toolbar">
               <div className="btn-group btn-group-lg">
-                <button
-                  type="button"
-                  className="btn btn-danger"
-                  key="2"
-                  onClick={this.addStrike}
-                >
-                  Add Strike
+                <button className="btn btn-danger" onClick={this.addStrike}>
+                  Add Strike ({strikeCount})
                 </button>
                 <button
-                  type="button"
                   onClick={this.unlockBuzzer}
                   className="btn btn-danger"
                   disabled={!buzzerLocked}
