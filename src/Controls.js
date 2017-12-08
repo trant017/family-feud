@@ -43,6 +43,7 @@ class Controls extends Component {
     this.addStrike = this.addStrike.bind(this);
     this.changeTeams = this.changeTeams.bind(this);
     this.nextQuestion = this.nextQuestion.bind(this);
+    this.prevQuestion = this.prevQuestion.bind(this);
     this.revealAnswer = this.revealAnswer.bind(this);
     this.renderAnswer = this.renderAnswer.bind(this);
     this.assignPool = this.assignPool.bind(this);
@@ -114,7 +115,18 @@ class Controls extends Component {
   nextQuestion() {
     const maxIndex = this.state.questions.length - 1;
     const nextQuestion = this.state.currentQuestion + 1;
-    const currentQuestion = maxIndex >= nextQuestion ? nextQuestion : 0;
+    const currentQuestion = maxIndex >= nextQuestion ? nextQuestion : maxIndex;
+    const dbRef = this.db.ref("/");
+    dbRef.set({
+      ...this.state,
+      currentQuestion
+    });
+  }
+
+  prevQuestion() {
+    const minIndex = 0;
+    const nextQuestion = this.state.currentQuestion - 1;
+    const currentQuestion = minIndex <= nextQuestion ? nextQuestion : minIndex;
     const dbRef = this.db.ref("/");
     dbRef.set({
       ...this.state,
@@ -214,7 +226,7 @@ class Controls extends Component {
               />
               <span className="input-group-btn">
                 <button className="btn btn-info" onClick={this.assignPool}>
-                  Assign Pool {this.currentPool()}
+                  Assign Pool ({this.currentPool()})
                 </button>
               </span>
             </div>
@@ -233,10 +245,20 @@ class Controls extends Component {
                   Unlock Buzzer
                 </button>
               </div>
+              <div className="btn-group btn-group-lg">
+                <button className="btn btn-info" onClick={this.prevQuestion}>
+                  <span className="glyphicon glyphicon-chevron-left" />
+                </button>
+                <button onClick={this.nextQuestion} className="btn btn-info">
+                  <span className="glyphicon glyphicon-chevron-right" />
+                </button>
+              </div>
             </div>
           </section>
           <div className="current-question col-sm-12">
-            <h2>{questions[currentQuestion].text}</h2>
+            <h2>
+              {currentQuestion + 1}.&nbsp;{questions[currentQuestion].text}
+            </h2>
             <h3>Answers</h3>
             <table className="table">
               <thead>
