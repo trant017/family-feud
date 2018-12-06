@@ -6,584 +6,393 @@
   "buzzerLocked": false,
   "questions": [
     {
-      "text": "Name something that people mistake for a UFO",
+      "text": "Name a job someone would've had while they were in high school.",
       "answers": [
         {
           "hidden": true,
-          "text": "Weather Balloons",
-          "value": 8
+          "text": "Fast food",
+          "value": 37
         },
         {
           "hidden": true,
-          "text": "Planes",
-          "value": 7
-        },
-        {
-          "hidden": true,
-          "text": "Drones",
-          "value": 6
-        },
-        {
-          "hidden": true,
-          "text": "Shooting Star/Comet",
-          "value": 3
-        },
-        {
-          "hidden": true,
-          "text": "Satellites",
-          "value": 2
-        },
-        {
-          "hidden": true,
-          "text": "Clouds",
-          "value": 2
-        }
-      ]
-    },
-    {
-      "text": "Name a food trend from 2017",
-      "answers": [
-        {
-          "hidden": true,
-          "text": "Charcoal Everything",
-          "value": 14
-        },
-        {
-          "hidden": true,
-          "text": "Avocado with anything",
-          "value": 4
-        },
-        {
-          "hidden": true,
-          "text": "Sushi Burritos",
-          "value": 3
-        },
-        {
-          "hidden": true,
-          "text": "Poke Bowls",
-          "value": 2
-        },
-        {
-          "hidden": true,
-          "text": "Tacos",
-          "value": 2
-        }
-      ]
-    },
-    {
-      "text": "Name a word or phrase that has the word \"sponge\" in it",
-      "answers": [
-        {
-          "hidden": true,
-          "text": "Spongebob Squarepants",
+          "text": "Cashier",
           "value": 23
         },
         {
           "hidden": true,
-          "text": "Spongecake",
-          "value": 5
+          "text": "Actual Restaurant",
+          "value": 13
         },
         {
           "hidden": true,
-          "text": "Seasponge",
-          "value": 3
-        },
-        {
-          "hidden": true,
-          "text": "Sponge Bath",
-          "value": 1
-        }
-      ]
-    },
-    {
-      "text":
-        "Name a Biblio employee you'd most like to be trapped in an elevator with over lunch",
-      "answers": [
-        {
-          "hidden": true,
-          "text": "Mende",
-          "value": 7
-        },
-        {
-          "hidden": true,
-          "text": "Catherine",
-          "value": 5
-        },
-        {
-          "hidden": true,
-          "text": "Victor",
-          "value": 3
-        },
-        {
-          "hidden": true,
-          "text": "Colleen",
-          "value": 2
-        },
-        {
-          "hidden": true,
-          "text": "Yaz",
-          "value": 2
-        },
-        {
-          "hidden": true,
-          "text": "Party Marty",
-          "value": 2
-        }
-      ]
-    },
-    {
-      "text": "Name something you do every day",
-      "answers": [
-        {
-          "hidden": true,
-          "text": "Eat",
-          "value": 5
-        },
-        {
-          "hidden": true,
-          "text": "Brush Teeth",
-          "value": 5
-        },
-        {
-          "hidden": true,
-          "text": "Drink Coffee",
-          "value": 3
-        },
-        {
-          "hidden": true,
-          "text": "Breathe",
-          "value": 3
-        },
-        {
-          "hidden": true,
-          "text": "Sleep",
-          "value": 3
-        },
-        {
-          "hidden": true,
-          "text": "Bathroom Stuff",
-          "value": 2
-        }
-      ]
-    },
-    {
-      "text": "Name an internet meme featuring an animal",
-      "answers": [
-        {
-          "hidden": true,
-          "text": "Grumpy Cat",
-          "value": 5
-        },
-        {
-          "hidden": true,
-          "text": "Doge",
-          "value": 5
-        },
-        {
-          "hidden": true,
-          "text": "Socially awkward Penguin",
-          "value": 4
-        },
-        {
-          "hidden": true,
-          "text": "Business Cat",
-          "value": 3
-        },
-        {
-          "hidden": true,
-          "text": "Klever Koala",
-          "value": 2
-        },
-        {
-          "hidden": true,
-          "text": "Confession Bear",
-          "value": 1
-        }
-      ]
-    },
-    {
-      "text": "Name a city known for its pizza",
-      "answers": [
-        {
-          "hidden": true,
-          "text": "Chicago",
-          "value": 22
-        },
-        {
-          "hidden": true,
-          "text": "New York",
-          "value": 10
-        },
-        {
-          "hidden": true,
-          "text": "Naples",
-          "value": 3
-        },
-        {
-          "hidden": true,
-          "text": "Detroit",
-          "value": 1
-        }
-      ]
-    },
-    {
-      "text": "Name a famous pig",
-      "answers": [
-        {
-          "hidden": true,
-          "text": "Wilbur",
-          "value": 10
-        },
-        {
-          "hidden": true,
-          "text": "Babe",
-          "value": 10
-        },
-        {
-          "hidden": true,
-          "text": "Porky",
-          "value": 7
-        },
-        {
-          "hidden": true,
-          "text": "Peppa",
-          "value": 4
-        },
-        {
-          "hidden": true,
-          "text": "Miss Piggy",
-          "value": 2
-        },
-        {
-          "hidden": true,
-          "text": "Trump",
-          "value": 2
-        }
-      ]
-    },
-    {
-      "text": "Name something that might be on the rocks",
-      "answers": [
-        {
-          "hidden": true,
-          "text": "Whiskey",
-          "value": 10
-        },
-        {
-          "hidden": true,
-          "text": "Scotch",
+          "text": "Babysitting",
           "value": 9
         },
         {
           "hidden": true,
-          "text": "Vodka",
-          "value": 7
+          "text": "Grocery Store",
+          "value": 9
         },
         {
           "hidden": true,
-          "text": "Relationships",
-          "value": 6
+          "text": "Retail",
+          "value": 9
         }
       ]
     },
     {
-      "text": "Name something cats have that people don't",
+      "text": "What could make you decide not to have a second date with someone?",
       "answers": [
         {
           "hidden": true,
-          "text": "Tails",
-          "value": 11
+          "text": "Bad Manners",
+          "value": 30
         },
         {
           "hidden": true,
-          "text": "Nine Lives",
-          "value": 5
+          "text": "Literally Anything",
+          "value": 25
         },
         {
           "hidden": true,
-          "text": "Whiskers",
-          "value": 5
-        },
-        {
-          "hidden": true,
-          "text": "Paws",
-          "value": 3
-        },
-        {
-          "hidden": true,
-          "text": "Fur",
-          "value": 3
-        },
-        {
-          "hidden": true,
-          "text": "Litter Boxes",
-          "value": 2
-        }
-      ]
-    },
-    {
-      "text": "Name a crime some people commit every day",
-      "answers": [
-        {
-          "hidden": true,
-          "text": "Jaywalking",
-          "value": 21
-        },
-        {
-          "hidden": true,
-          "text": "Smoking Weed",
-          "value": 2
-        },
-        {
-          "hidden": true,
-          "text": "Forgetting to cancel your holds",
-          "value": 1
-        }
-      ]
-    },
-    {
-      "text": "Name a guilty musical pleasure",
-      "answers": [
-        {
-          "hidden": true,
-          "text": "Abba",
-          "value": 3
-        },
-        {
-          "hidden": true,
-          "text": "Hanson",
-          "value": 2
-        },
-        {
-          "hidden": true,
-          "text": "Carly Rae Jepsen",
-          "value": 2
-        },
-        {
-          "hidden": true,
-          "text": "Taylor Swift",
-          "value": 2
-        },
-        {
-          "hidden": true,
-          "text": "Miley Cyrus",
-          "value": 1
-        },
-        {
-          "hidden": true,
-          "text": "Justin Bieber",
-          "value": 1
-        }
-      ]
-    },
-    {
-      "text": "Name something people smell before they buy it",
-      "answers": [
-        {
-          "hidden": true,
-          "text": "Fruit",
-          "value": 10
-        },
-        {
-          "hidden": true,
-          "text": "Perfume",
-          "value": 10
-        },
-        {
-          "hidden": true,
-          "text": "Deodorant",
-          "value": 4
-        },
-        {
-          "hidden": true,
-          "text": "Flowers",
-          "value": 3
-        },
-        {
-          "hidden": true,
-          "text": "Candles",
-          "value": 2
-        },
-        {
-          "hidden": true,
-          "text": "Shampoo",
-          "value": 2
-        },
-        {
-          "hidden": true,
-          "text": "Cheese",
-          "value": 2
-        }
-      ]
-    },
-    {
-      "text": "Name something you don't mind asking a complete stranger for",
-      "answers": [
-        {
-          "hidden": true,
-          "text": "Directions",
+          "text": "Bad hygiene",
           "value": 15
         },
         {
           "hidden": true,
-          "text": "The time",
+          "text": "Political Views",
           "value": 12
         },
         {
           "hidden": true,
-          "text": "A Light",
-          "value": 2
-        },
-        {
-          "hidden": true,
-          "text": "Leave you alone",
-          "value": 2
-        },
-        {
-          "hidden": true,
-          "text": "Watch my laptop while I pee",
-          "value": 1
-        }
-      ]
-    },
-    {
-      "text": "Give me another word for throw up",
-      "answers": [
-        {
-          "hidden": true,
-          "text": "Puke",
-          "value": 11
-        },
-        {
-          "hidden": true,
-          "text": "Barf",
-          "value": 7
-        },
-        {
-          "hidden": true,
-          "text": "Hurl",
-          "value": 6
-        },
-        {
-          "hidden": true,
-          "text": "Vomit",
-          "value": 5
-        },
-        {
-          "hidden": true,
-          "text": "Retch",
-          "value": 2
-        },
-        {
-          "hidden": true,
-          "text": "Spew",
-          "value": 2
-        }
-      ]
-    },
-    {
-      "text": "Past or present, name a famous Bob",
-      "answers": [
-        {
-          "hidden": true,
-          "text": "Spongebob",
+          "text": "Creepy AF",
           "value": 9
         },
         {
           "hidden": true,
-          "text": "Bob Ross",
-          "value": 5
-        },
-        {
-          "hidden": true,
-          "text": "Bob Marley",
-          "value": 5
-        },
-        {
-          "hidden": true,
-          "text": "Bob Dylan",
-          "value": 4
-        },
-        {
-          "hidden": true,
-          "text": "Bob Barker",
-          "value": 4
-        },
-        {
-          "hidden": true,
-          "text": "Bob Saget",
-          "value": 3
+          "text": "Illiterate",
+          "value": 9
         }
       ]
     },
     {
-      "text": "Name something you find in the server room",
+      "text": "What's a hard stain to get out?",
       "answers": [
         {
           "hidden": true,
-          "text": "Victor",
-          "value": 15
+          "text": "Blood",
+          "value": 34
         },
         {
           "hidden": true,
-          "text": "Brian",
+          "text": "Wine",
+          "value": 17
+        },
+        {
+          "hidden": true,
+          "text": "Oil/Grease",
+          "value": 16
+        },
+        {
+          "hidden": true,
+          "text": "Tomato Sauce",
+          "value": 11
+        },
+        {
+          "hidden": true,
+          "text": "Chocolate",
           "value": 8
         },
         {
           "hidden": true,
-          "text": "Servers",
-          "value": 6
-        },
-        {
-          "hidden": true,
-          "text": "Wires",
-          "value": 7
-        },
-        {
-          "hidden": true,
-          "text": "Victory's illegal bakery",
-          "value": 1
+          "text": "Poop",
+          "value": 5
         }
       ]
     },
     {
-      "text": "Name something you find in the server room",
+      "text": "What might make conversations at Friday drinks suddenly awkward?",
       "answers": [
         {
           "hidden": true,
-          "text": "Victor",
-          "value": 15
+          "text": "Tony's Opinions",
+          "value": 39
         },
         {
           "hidden": true,
-          "text": "Brian",
+          "text": "Politics",
+          "value": 16
+        },
+        {
+          "hidden": true,
+          "text": "Out of Beer/Chips",
+          "value": 11
+        },
+        {
+          "hidden": true,
+          "text": "Mende",
           "value": 8
         },
         {
           "hidden": true,
-          "text": "Servers",
+          "text": "A Fart",
+          "value": 5
+        }
+      ]
+    },
+    {
+      "text": "Name something you don't mind asking a complete stranger for.",
+      "answers": [
+        {
+          "hidden": true,
+          "text": "Directions",
+          "value": 36
+        },
+        {
+          "hidden": true,
+          "text": "The time",
+          "value": 33
+        },
+        {
+          "hidden": true,
+          "text": "A light",
           "value": 6
         },
         {
           "hidden": true,
-          "text": "Wires",
+          "text": "Friendship",
+          "value": 6
+        },
+        {
+          "hidden": true,
+          "text": "Go Away",
+          "value": 5
+        },
+        {
+          "hidden": true,
+          "text": "Their address",
+          "value": 5
+        }
+      ]
+    },
+    {
+      "text": "Why might your coworker email you at 2am?",
+      "answers": [
+        {
+          "hidden": true,
+          "text": "Prod/Core/Server Down",
+          "value": 30
+        },
+        {
+          "hidden": true,
+          "text": "Because they are working for some reason",
+          "value": 14
+        },
+        {
+          "hidden": true,
+          "text": "Clients calling for help",
+          "value": 11
+        },
+        {
+          "hidden": true,
+          "text": "Grab Drinks",
+          "value": 11
+        },
+        {
+          "hidden": true,
+          "text": "Amazing Idea",
+          "value": 9
+        }
+      ]
+    },
+    {
+      "text": "Name something expensive you could order in a restaurant.",
+      "answers": [
+        {
+          "hidden": true,
+          "text": "Fancy Steak/Filet Mignon",
+          "value": 20
+        },
+        {
+          "hidden": true,
+          "text": "Caviar",
+          "value": 17
+        },
+        {
+          "hidden": true,
+          "text": "Lobster",
+          "value": 15
+        },
+        {
+          "hidden": true,
+          "text": "Wine",
+          "value": 14
+        },
+        {
+          "hidden": true,
+          "text": "Foie Gras",
+          "value": 12
+        },
+        {
+          "hidden": true,
+          "text": "Champagne",
+          "value": 9
+        },
+        {
+          "hidden": true,
+          "text": "Gold Covered Anything",
           "value": 7
         },
         {
           "hidden": true,
-          "text": "Victory's illegal bakery",
-          "value": 1
+          "text": "Truffles",
+          "value": 6
+        }
+      ]
+    },
+    {
+      "text": "Name a bad job for someone who is accident prone.",
+      "answers": [
+        {
+          "hidden": true,
+          "text": "Driver",
+          "value": 34
+        },
+        {
+          "hidden": true,
+          "text": "Construction",
+          "value": 20
+        },
+        {
+          "hidden": true,
+          "text": "Police Officer",
+          "value": 11
+        },
+        {
+          "hidden": true,
+          "text": "Food Service",
+          "value": 11
+        },
+        {
+          "hidden": true,
+          "text": "Glass maker",
+          "value": 10
+        },
+        {
+          "hidden": true,
+          "text": "Window Washer",
+          "value": 7
+        },
+        {
+          "hidden": true,
+          "text": "Surgeon",
+          "value": 6
+        }
+      ]
+    },
+    {
+      "text": "What is your least favourite current fashion trend?",
+      "answers": [
+        {
+          "hidden": true,
+          "text": "Man Buns",
+          "value": 30
+        },
+        {
+          "hidden": true,
+          "text": "Faux Fur",
+          "value": 26
+        },
+        {
+          "hidden": true,
+          "text": "Cropped Pants",
+          "value": 22
+        },
+        {
+          "hidden": true,
+          "text": "Uggs",
+          "value": 13
+        },
+        {
+          "hidden": true,
+          "text": "Fanny packs",
+          "value": 9
+        }
+      ]
+    },
+    {
+      "text": "Worst thing to put on a pizza?",
+      "answers": [
+        {
+          "hidden": true,
+          "text": "Pineapple",
+          "value": 38
+        },
+        {
+          "hidden": true,
+          "text": "Anchovies",
+          "value": 28
+        },
+        {
+          "hidden": true,
+          "text": "Meat",
+          "value": 14
+        },
+        {
+          "hidden": true,
+          "text": "Olives",
+          "value": 10
+        },
+        {
+          "hidden": true,
+          "text": "Mushrooms",
+          "value": 10
+        }
+      ]
+    },
+    {
+      "text": "Name a good way to wake up fast.",
+      "answers": [
+        {
+          "hidden": true,
+          "text": "Alarm Clock",
+          "value": 32
+        },
+        {
+          "hidden": true,
+          "text": "Hot Coffee",
+          "value": 24
+        },
+        {
+          "hidden": true,
+          "text": "Realize you are late",
+          "value": 16
+        },
+        {
+          "hidden": true,
+          "text": "Cold Shower",
+          "value": 12
+        },
+        {
+          "hidden": true,
+          "text": "Pager Duty",
+          "value": 8
+        },
+        {
+          "hidden": true,
+          "text": "Children",
+          "value": 8
         }
       ]
     }
   ],
   "teams": [
     {
-      "name": "Team Venture",
+      "name": "Team ACC",
       "score": 0
     },
     {
-      "name": "Team Edward",
+      "name": "Team Skydome",
       "score": 0
     }
   ]

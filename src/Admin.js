@@ -39,6 +39,13 @@ class Admin extends Component {
     };
   }
 
+  componentDidMount() {
+    this.db.ref('/').once('value').then(function(snapshot) {
+      console.info(snapshot.val());
+    })
+
+  }
+
   deleteQuestion(id) {
 
   }
@@ -62,7 +69,7 @@ class Admin extends Component {
 
   render() {
     return (
-      <div>Hi</div>
+      <div>hi</div>
     )
   }
 
