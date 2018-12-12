@@ -36,6 +36,7 @@ class App extends Component {
     this.showStrike = this.showStrike.bind(this);
     this.finishCorrectAudio = this.finishCorrectAudio.bind(this);
     this.finishStrikeAudio = this.finishStrikeAudio.bind(this);
+    this.finishIntroAudio = this.finishIntroAudio.bind(this);
   }
 
   componentDidMount() {
@@ -49,6 +50,10 @@ class App extends Component {
   componentWillUpdate(nextProps, nextState) {
     if (!this.state.playCorrectAudio && nextState.playCorrectAudio) {
       this.correctPlayer.audioEl.play();
+    }
+
+    if (!this.state.playIntro && nextState.playIntro) {
+      this.introPlayer.audioEl.play();
     }
 
     if (!this.state.showStrike && nextState.showStrike) {
@@ -71,6 +76,12 @@ class App extends Component {
   finishStrikeAudio() {
     const dbRef = firebase.database().ref("/");
     _.set(this.state, "showStrike", false);
+    dbRef.set(this.state);
+  }
+
+  finishIntroAudio() {
+    const dbRef = firebase.database().ref("/");
+    _.set(this.state, "playIntro", false);
     dbRef.set(this.state);
   }
 
@@ -112,6 +123,15 @@ class App extends Component {
           preload="auto"
           src="./ff-clang.wav"
           onEnded={this.finishCorrectAudio}
+        />
+        <ReactAudioPlayer
+          ref={el => {
+            this.introPlayer = el;
+          }}
+          controls={false}
+          preload="auto"
+          src="./ff-intro.wav"
+          onEnded={this.finishIntroAudio}
         />
       </div>
     );
