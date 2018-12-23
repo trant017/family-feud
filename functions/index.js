@@ -2,11 +2,11 @@ var functions = require('firebase-functions');
 
 var admin = require("firebase-admin");
 
-var serviceAccount = require("./bibliofamilyfeud-2017-firebase-adminsdk-m74ox-5e07c65b5a.json");
+var serviceAccount = require("./testtony-b24db-firebase-adminsdk-jkidu-71f7c537e6.json");
 
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
-  databaseURL: "https://bibliofamilyfeud-2017.firebaseio.com"
+  databaseURL: "https://testtony-b24db.firebaseio.com"
 });
 
 exports.buzzIn = functions.https.onRequest((req, res) => {
@@ -41,6 +41,5 @@ exports.unlock = functions.https.onRequest((req, res) => {
         res.status(200);
         res.json({ success: true, message: "Buzzers Unlocked" });
       });
-    }
   });
 });

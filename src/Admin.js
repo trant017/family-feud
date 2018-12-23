@@ -4,12 +4,12 @@ import firebase from 'firebase';
 import './admin.css';
 
 const config = {
-  apiKey: "AIzaSyD4vT03R82XYAYaGrUN7NqMvQmrEveubUc",
-  authDomain: "bibliofamilyfeud-2017.firebaseapp.com",
-  databaseURL: "https://bibliofamilyfeud-2017.firebaseio.com",
-  projectId: "bibliofamilyfeud-2017",
-  storageBucket: "",
-  messagingSenderId: "142220609476"
+  apiKey: "AIzaSyBhaTercJfWxpqtvNzRpPNTlX2bB8Klzls",
+  authDomain: "testtony-b24db.firebaseapp.com",
+  databaseURL: "https://testtony-b24db.firebaseio.com",
+  projectId: "testtony-b24db",
+  storageBucket: "testtony-b24db.appspot.com",
+  messagingSenderId: "903324127900"
 };
 
 
