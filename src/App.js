@@ -3,8 +3,7 @@ import ReactAudioPlayer from "react-audio-player";
 import _ from "lodash";
 import "./App.css";
 import * as firebase from "firebase";
-import CurrentQuestion from "./CurrentQuestion.js";
-import TeamBoard from "./TeamBoard.js";
+import CurrentBoard from "./CurrentBoard.js";
 import BigStrike from "./BigStrike.js";
 
 const config = {
@@ -20,18 +19,14 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      showStrike: false,
-      scorePool: 0,
-      strikeCount: 0,
-      currentQuestion: 0,
-      currentTeam: 0,
-      questions: [
+      currentBoard: 0,
+      boards: [
         {
-          question: null,
-          answers: []
+          board: null,
+          categories: []
         }
       ],
-      teams: [{ name: "test1", score: 0 }, { name: "test2", score: 0 }]
+      teams: [{ name: "test1", score: 0 }, { name: "test2", score: 0 }, { name: "test3", score: 0 }]
     };
     this.showStrike = this.showStrike.bind(this);
     this.finishCorrectAudio = this.finishCorrectAudio.bind(this);
@@ -87,25 +82,15 @@ class App extends Component {
 
   render() {
     const {
-      showStrike,
       teams,
-      questions,
-      strikeCount,
+      boards,
       currentTeam,
-      currentQuestion
+      currentBoard
     } = this.state;
 
     return (
       <div className="App">
-        <TeamBoard
-          currentQuestion={currentQuestion}
-          questions={questions}
-          count={strikeCount}
-          currentTeamIndex={currentTeam}
-          teams={teams}
-        />
-        <CurrentQuestion question={questions[currentQuestion]} />
-        {this.showStrike(showStrike)}
+        <CurrentBoard board={boards[currentBoard]} />
         <ReactAudioPlayer
           ref={el => {
             this.strikePlayer = el;

@@ -1,8 +1,7 @@
 .cp-current-question {
   font-size: 28px;
-  width: 75vw;
-  margin: 0 auto;
-
+  width: 100%;
+  display: flex;
 }
 
 .question {
@@ -13,9 +12,9 @@
   margin: 40px 0;
 }
 
-.answerList {
-  display: flex;
+.o-category {
   flex-flow: column wrap;
+  min-width: 15%;
 }
 
 .answer {
@@ -57,16 +56,16 @@
 
 
 /* entire container, keeps perspective */
-.flip-container {
-	perspective: 1000px;
-
-  height: 100px;
+.c-category__box {
   display: flex;
-  justify-content: space-between;
+  height: 100%;
+  width: 100%;
   align-items: center;
-  padding-left: 25px;
-  margin: 20px 0 0;
-  width: 48%;
+  justify-content: center;
+  color: white;
+  background-color: blue;
+  border: 5px solid black;
+  margin: 0;
 }
 
 /* flip the pane when hovered */

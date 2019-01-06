@@ -243,7 +243,7 @@ class Controls extends Component {
       currentQuestion,
       currentTeam
     } = this.state;
-
+    console.log(this);
     return (
       <div className="container-fluid">
         <div className="cp-admin-panel row">
