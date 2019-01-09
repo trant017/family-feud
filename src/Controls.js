@@ -24,28 +24,21 @@ class Controls extends Component {
     this.db = firebase.database();
 
     this.state = {
-      showStrike: false,
-      scorePool: 0,
-      currentQuestion: 0,
-      strikeCount: 0,
-      currentTeam: 0,
-      questions: [
-        {
-          question: "question1",
-          answers: [
-            { hidden: true, text: "10", value: 10 },
-            { hidden: true, text: "5", value: 15 }
-          ]
-        }
-      ],
-      teams: [{ name: "team 1", score: 0 }]
+        currentBoard: 0,
+        boards: [
+            {
+                board: null,
+                categories: []
+            }
+        ],
+        teams: [{ name: "test1", score: 0 }, { name: "test2", score: 0 }, { name: "test3", score: 0 }]
     };
     this.addStrike = this.addStrike.bind(this);
     this.changeTeams = this.changeTeams.bind(this);
     this.nextQuestion = this.nextQuestion.bind(this);
     this.prevQuestion = this.prevQuestion.bind(this);
-    this.revealAnswer = this.revealAnswer.bind(this);
-    this.renderAnswer = this.renderAnswer.bind(this);
+    this.revealClue = this.revealClue.bind(this);
+    this.renderBoard = this.renderBoard.bind(this);
     this.assignPool = this.assignPool.bind(this);
     this.hideStrike = this.hideStrike.bind(this);
     this.showOneStrike = this.showOneStrike.bind(this);
@@ -63,27 +56,29 @@ class Controls extends Component {
     dbRef.once("value");
   }
 
-  revealAnswer(idx) {
-    const dbRef = this.db.ref("/");
-    const currentAnswer = _.get(
-      this.state,
-      `questions[${this.state.currentQuestion}].answers[${idx}]`
-    );
-    if (currentAnswer.hidden) {
-      _.set(
-        this.state,
-        `questions[${this.state.currentQuestion}].answers[${idx}].hidden`,
-        false
-      );
-      _.set(this.state, "playCorrectAudio", true);
-    } else {
-      _.set(
-        this.state,
-        `questions[${this.state.currentQuestion}].answers[${idx}].hidden`,
-        true
-      );
-    }
-    dbRef.set(this.state);
+  revealClue(something ,idx) {
+    console.log(something);
+    console.log(idx);
+    // const dbRef = this.db.ref("/");
+    // const currentAnswer = _.get(
+    //   this.state,
+    //   `questions[${this.state.currentQuestion}].answers[${idx}]`
+    // );
+    // if (currentAnswer.hidden) {
+    //   _.set(
+    //     this.state,
+    //     `questions[${this.state.currentQuestion}].answers[${idx}].hidden`,
+    //     false
+    //   );
+    //   _.set(this.state, "playCorrectAudio", true);
+    // } else {
+    //   _.set(
+    //     this.state,
+    //     `questions[${this.state.currentQuestion}].answers[${idx}].hidden`,
+    //     true
+    //   );
+    // }
+    // dbRef.set(this.state);
   }
 
   assignPool() {
@@ -217,104 +212,60 @@ class Controls extends Component {
       strikeCount: 0
     });
   }
-  renderAnswer(answer, idx) {
+  renderBoard(category, idx) {
+    if (category == null) {
+      return
+    }
+    console.log(this);
     return (
-      <tr>
-        <td className="text">{answer.text}</td>
-        <td className="score">{answer.value}</td>
-        <td>
-          <button
-            className={`btn btn-${answer.hidden ? "primary" : "danger"}`}
-            onClick={this.revealAnswer.bind(this, idx)}
-          >
-            {answer.hidden ? "Show" : "Hide"}
-          </button>
-        </td>
-      </tr>
+      <div className="o-category">
+        <div key={'category-' + idx} className="c-category__box">
+            <span>{category.text}</span>
+        </div>
+          {_.chain(category.questions).map(function(question, index){
+              // console.log('got here 2');
+              // console.log(question.text);
+              console.log(this);
+              return (
+                  <button className={`c-category__box vertical flip'}`} key={question.text} onClick={this.revealClue.bind(this, idx)}>
+                      <span className="number">{question.text}</span>
+                  </button>
+              );
+          }).value() }
+        {/*<td className="score">{answer.value}</td>*/}
+        {/*<td>*/}
+          {/*<button*/}
+            {/*className={`btn btn-${answer.hidden ? "primary" : "danger"}`}*/}
+            {/*onClick={this.revealAnswer.bind(this, idx)}*/}
+          {/*>*/}
+            {/*{answer.hidden ? "Show" : "Hide"}*/}
+          {/*</button>*/}
+        {/*</td>*/}
+      </div>
     );
   }
 
   render() {
     const {
-      buzzerLocked,
-      teams,
-      strikeCount,
-      questions,
-      currentQuestion,
-      currentTeam
+        teams,
+        boards,
+        currentTeam,
+        currentBoard
     } = this.state;
-    console.log(this);
+    console.log(boards);
     return (
       <div className="container-fluid">
         <div className="cp-admin-panel row">
-          <section className="col-sm-6" style={{ marginBottom: "1em" }}>
-            <div className="input-group input-group-lg">
-              <span className="input-group-btn">
-                <button className="btn btn-info" onClick={this.changeTeams}>
-                  <span className="glyphicon glyphicon-refresh" />
-                </button>
-              </span>
-              <input
-                type="text"
-                disabled
-                className="form-control"
-                label="Current Team"
-                value={`${teams[currentTeam].name} - ${
-                  teams[currentTeam].score
-                }`}
-              />
-              <span className="input-group-btn">
-                <button className="btn btn-info" onClick={this.assignPool}>
-                  Assign Pool ({this.currentPool()})
-                </button>
-              </span>
-            </div>
-          </section>
-          <section className="col-sm-6" style={{ marginBottom: "1em" }}>
-            <div className="btn-toolbar">
-              <div className="btn-group btn-group-lg">
-                <button className="btn btn-danger" onClick={this.showOneStrike}>
-                  Show One Strike
-                </button>
-                <button className="btn btn-danger" onClick={this.showTwoStrike}>
-                  Show Two Strike
-                </button>
-                <button className="btn btn-danger" onClick={this.showThreeStrike}>
-                  Show Three Strike
-                </button>
-              </div>
-              <div className="btn-group btn-group-lg">
-                <button className="btn btn-info" onClick={this.prevQuestion}>
-                  <span className="glyphicon glyphicon-chevron-left" />
-                </button>
-                <button onClick={this.nextQuestion} className="btn btn-info">
-                  <span className="glyphicon glyphicon-chevron-right" />
-                </button>
-                <button onClick={this.playIntro} className="btn btn-info">
-                  Play Intro Music
-                </button>
-              </div>
-            </div>
-          </section>
           <div className="current-question col-sm-12">
             <h2>
-              {currentQuestion + 1}.&nbsp;{questions[currentQuestion].text}
+              {/*{currentQuestion + 1}.&nbsp;{questions[currentQuestion].text}*/}
             </h2>
             <h3>Answers</h3>
-            <table className="table">
-              <thead>
-                <tr>
-                  <th>Answer</th>
-                  <th>Score</th>
-                  <th>Options</th>
-                </tr>
-              </thead>
-              <tbody>
-                {_.chain(questions[currentQuestion].answers)
-                  .map(this.renderAnswer)
+            <div className="o-answers">
+                {_.chain(boards[currentBoard].categories)
+                  .map(this.renderBoard)
                   .value()}
-              </tbody>
-            </table>
+            </div>
           </div>
         </div>
       </div>

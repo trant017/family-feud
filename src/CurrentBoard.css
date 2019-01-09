@@ -120,3 +120,7 @@
 .vertical.flip-container.flip .flipper {
   transform: rotateX(180deg);
 }
+
+.o-answers {
+  display: flex;
+}
